@@ -1,6 +1,5 @@
 package ch.zli.m223.punchclock.controller;
 
-import ch.zli.m223.punchclock.domain.Entry;
 import ch.zli.m223.punchclock.domain.User;
 import ch.zli.m223.punchclock.service.RegistrationService;
 import org.eclipse.microprofile.openapi.annotations.Operation;

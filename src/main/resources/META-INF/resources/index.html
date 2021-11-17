@@ -9,19 +9,25 @@
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
+        <div id="registration">
+            <label for="benutzername">Benutzername</label>
+            <input type="text" v-model="benutzername" name="benutzername_input" id="benutzername" required>
+
+            <label for="passwort">Passwort</label>
+            <input type="password" v-model="passwort" name="passwort_input" id="passwort" required>
+
+            <input type="submit" v-on:click="sendRegistrationData" value="Registrieren">
+        </div>
         <div id="login">
             <label for="benutzername">Benutzername</label>
             <input type="text" v-model="benutzername" name="benutzername_input" id="benutzername" required>
 
             <label for="passwort">Passwort</label>
-            <input type="text" v-model="passwort" name="passwort_input" id="passwort" required>
+            <input type="password" v-model="passwort" name="passwort_input" id="passwort" required>
 
             <input type="submit" v-on:click="sendLoginData" value="Einloggen">
         </div>
-        <div id="categories">
-            <h1>Categories: </h1>
-            {{ info }}
-        </div>
+        
 
         <!--
         <form id="createEntryForm">

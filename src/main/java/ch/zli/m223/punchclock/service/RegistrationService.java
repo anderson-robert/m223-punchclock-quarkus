@@ -1,11 +1,13 @@
 package ch.zli.m223.punchclock.service;
 
-import ch.zli.m223.punchclock.domain.User;
-
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
+import ch.zli.m223.punchclock.domain.User;
+
+@ApplicationScoped
 public class RegistrationService {
     @Inject
     private EntityManager entityManager;

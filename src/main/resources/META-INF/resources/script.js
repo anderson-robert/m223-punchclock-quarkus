@@ -1,5 +1,29 @@
 const clientPath = "http://localhost:8080/";
 
+var registration = new Vue({
+    el: '#registration',
+    data () {
+        return{
+            benutzername: "",
+            passwort: ""
+        }
+    },
+    methods: {
+        sendRegistrationData: function () {
+            axios.post('http://localhost:8080/register', {
+                username: this.benutzername,
+                password: this.passwort
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+        }
+    },
+  })
+
 var login = new Vue({
     el: '#login',
     data () {
