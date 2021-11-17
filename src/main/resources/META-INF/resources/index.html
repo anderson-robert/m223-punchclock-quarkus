@@ -7,9 +7,23 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Punchclock Client</title>
         <link rel="stylesheet" type="text/css" href="style.css" />
-        <script src="script.js" type="application/javascript"></script>
     </head>
     <body>
+        <div id="login">
+            <label for="benutzername">Benutzername</label>
+            <input type="text" v-model="benutzername" name="benutzername_input" id="benutzername" required>
+
+            <label for="passwort">Passwort</label>
+            <input type="text" v-model="passwort" name="passwort_input" id="passwort" required>
+
+            <input type="submit" v-on:click="sendLoginData" value="Einloggen">
+        </div>
+        <div id="categories">
+            <h1>Categories: </h1>
+            {{ info }}
+        </div>
+
+        <!--
         <form id="createEntryForm">
             <label for="checkIn">Check in</label>
             <input type="date" name="checkInDate" id="checkIn" required>
@@ -40,5 +54,9 @@
             <input type="password" onchange="{this.handlePasswordInput}" name="password" id="passWord" required>
             <input type="submit" onclick="{this.clickLogin}" value="Login" />
         </form>
+        -->
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="script.js"></script>
 </html>

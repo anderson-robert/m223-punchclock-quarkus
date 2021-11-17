@@ -1,3 +1,30 @@
+const clientPath = "http://localhost:8080/";
+
+var login = new Vue({
+    el: '#login',
+    data () {
+        return{
+            benutzername: "",
+            passwort: ""
+        }
+    },
+    methods: {
+        sendLoginData: function () {
+            axios.post('http://localhost:8080/auth/login', {
+                username: this.benutzername,
+                password: this.passwort
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+        }
+    },
+  })
+
+/*
 const URL = 'http://localhost:8080';
 let entries = [];
 let loginInput = {};
@@ -81,3 +108,4 @@ clickLogin = (e) => {
         }
     });
 }
+*/
