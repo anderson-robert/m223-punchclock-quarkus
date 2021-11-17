@@ -10,20 +10,20 @@
     </head>
     <body>
         <div id="registration">
-            <label for="benutzername">Benutzername</label>
-            <input type="text" v-model="benutzername" name="benutzername_input" id="benutzername" required>
+            <label for="benutzername_reg">Benutzername</label>
+            <input type="text" v-model="benutzername" name="benutzername_reg_input" id="benutzername_reg" required>
 
-            <label for="passwort">Passwort</label>
-            <input type="password" v-model="passwort" name="passwort_input" id="passwort" required>
+            <label for="passwort_reg">Passwort</label>
+            <input type="password" v-model="passwort" name="passwort_reg_input" id="passwort_reg" required>
 
             <input type="submit" v-on:click="sendRegistrationData" value="Registrieren">
         </div>
         <div id="login">
-            <label for="benutzername">Benutzername</label>
-            <input type="text" v-model="benutzername" name="benutzername_input" id="benutzername" required>
+            <label for="benutzername_log">Benutzername</label>
+            <input type="text" v-model="benutzername" name="benutzername_log_input" id="benutzername_log" required>
 
-            <label for="passwort">Passwort</label>
-            <input type="password" v-model="passwort" name="passwort_input" id="passwort" required>
+            <label for="passwort_log">Passwort</label>
+            <input type="password" v-model="passwort" name="passwort_log_input" id="passwort_log" required>
 
             <input type="submit" v-on:click="sendLoginData" value="Einloggen">
         </div>
