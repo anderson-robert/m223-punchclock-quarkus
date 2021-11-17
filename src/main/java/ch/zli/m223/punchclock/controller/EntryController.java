@@ -9,6 +9,9 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.PUT;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
@@ -28,6 +31,25 @@ public class EntryController {
     @Operation(summary = "List all Entries", description = "")
     public List<Entry> list() {
         return entryService.findAll();
+    }
+
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Gets ones entry", description = "")
+    public Entry getSingleEntry(@PathParam("id") Long id){
+        return entryService.getSingleEntry(id);
+    }
+
+    @DELETE
+    @Path("/{id}")
+    public void delete(@PathParam("id") Long id){
+        entryService.deleteEntry(id);
+    }
+
+    @PUT
+    public void update(Entry entry){
+        entryService.updateEntry(entry);
     }
 
     @POST

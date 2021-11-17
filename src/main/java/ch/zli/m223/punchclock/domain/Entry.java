@@ -16,6 +16,14 @@ public class Entry {
     @Column(nullable = false)
     private LocalDateTime checkOut;
 
+    @ManyToOne
+    @JoinColumn(name="category_id", nullable = false)
+    private Category category;
+
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable = false)
+    private User user;
+
     public Long getId() {
         return id;
     }
@@ -38,5 +46,21 @@ public class Entry {
 
     public void setCheckOut(LocalDateTime checkOut) {
         this.checkOut = checkOut;
+    }
+
+    public Category getCategory(){
+        return category;
+    }
+
+    public void setCategory(Category category){
+        this.category = category;
+    }
+
+    public User getUser(){
+        return user;
+    }
+
+    public void setUser(User user){
+        this.user = user;
     }
 }

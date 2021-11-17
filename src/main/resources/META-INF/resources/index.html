@@ -33,5 +33,12 @@
                 </tr>
             </tbody>
         </table>
+        <form id="loginForm">
+            <label for="userName">Username</label>
+            <input type="text" onchange="{this.handleUsernameInput}" name="username" id="userName" required>
+            <label for="passWord">Password</label>
+            <input type="password" onchange="{this.handlePasswordInput}" name="password" id="passWord" required>
+            <input type="submit" onclick="{this.clickLogin}" value="Login" />
+        </form>
     </body>
 </html>

@@ -1,5 +1,6 @@
 const URL = 'http://localhost:8080';
 let entries = [];
+let loginInput = {};
 
 const dateAndTimeToDate = (dateString, timeString) => {
     return new Date(`${dateString}T${timeString}`).toISOString();
@@ -61,3 +62,22 @@ document.addEventListener('DOMContentLoaded', function(){
     createEntryForm.addEventListener('submit', createEntry);
     indexEntries();
 });
+
+clickLogin = (e) => {
+    e.preventDefault;
+    fetch ("API Address", {
+        method: "POST",
+        body: JSON.stringify({
+            username: this.state.usernameValue,
+            password: this.state.passwordValue
+        }),
+    })
+    .then((response) => response.json())
+    .then((result) => {
+        if(result.message === "SUCCESS"){
+            alert("You are logged in.");
+        } else {
+            alert("Login failed.");
+        }
+    });
+}
