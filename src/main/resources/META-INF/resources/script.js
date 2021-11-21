@@ -4,15 +4,15 @@ var registration = new Vue({
     el: '#registration',
     data () {
         return{
-            benutzername: "",
-            passwort: ""
+            benutzername_reg: "",
+            passwort_reg: ""
         }
     },
     methods: {
         sendRegistrationData: function () {
             axios.post('http://localhost:8080/register', {
-                username: this.benutzername,
-                password: this.passwort
+                username: this.benutzername_reg,
+                password: this.passwort_reg
           })
           .then(function (response) {
             console.log(response);
@@ -28,15 +28,15 @@ var login = new Vue({
     el: '#login',
     data () {
         return{
-            benutzername: "",
-            passwort: ""
+            benutzername_log: "",
+            passwort_log: ""
         }
     },
     methods: {
         sendLoginData: function () {
             axios.post('http://localhost:8080/auth/login', {
-                username: this.benutzername,
-                password: this.passwort
+                username: this.benutzername_log,
+                password: this.passwort_log
           })
           .then(function (response) {
             console.log(response);
