@@ -58,7 +58,6 @@ var login = new Vue({
           })
           .then(function (response) {
             console.log(response);
-            sendLogData;
             window.location.href = "http://localhost:8080/home.html";
           })
           .catch(function (error) {
