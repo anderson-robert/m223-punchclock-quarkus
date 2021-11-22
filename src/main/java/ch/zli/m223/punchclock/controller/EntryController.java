@@ -36,7 +36,7 @@ public class EntryController {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.TEXT_PLAIN)
     @Operation(summary = "Gets ones entry", description = "A single entry matching the given ID is returned.")
     public Entry getSingleEntry(@PathParam("id") Long id){
         return entryService.getSingleEntry(id);
