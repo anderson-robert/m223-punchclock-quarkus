@@ -10,6 +10,7 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.io.IOException;
 import java.util.List;
 
 @Path("/logs")
@@ -51,6 +52,12 @@ public class LogController {
     @Operation(summary = "Add a new Log", description = "The newly created log is returned. The id may not be passed.")
     public Log add(Log log) {
         return logService.createLog(log);
+    }
+
+    @POST
+    @Path("/createLogFile")
+    public void createFile(String logType, Long userID) throws IOException {
+        logService.createLogFile(logType,userID);
     }
 
 }

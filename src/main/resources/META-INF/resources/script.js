@@ -38,27 +38,10 @@ var login = new Vue({
         }
     },
     methods: {
-        sendLoginData: function () {
-            axios.post('http://localhost:8080/auth/login', {
-                username: this.benutzername_log,
-                password: this.passwort_log
-          })
-          .then(function (response) {
-            console.log(response);
-            window.location.href = "http://localhost:8080/home.html";
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-        },
-
         sendLogData: function () {
-            axios.post('http://localhost:8080/logs', {
+            axios.post('http://localhost:8080/logs/createLogFile', {
                 logType: Object.logType,
-                user: Object.user,
-                path: path,
-                content: content,
-                timestamp: timestamp,
+                user: Object.user
             
             })
             .then(res => {
@@ -67,6 +50,20 @@ var login = new Vue({
             .catch(err => {
                 console.error(err); 
             })
+        },
+        sendLoginData: function () {
+            axios.post('http://localhost:8080/auth/login', {
+                username: this.benutzername_log,
+                password: this.passwort_log
+          })
+          .then(function (response) {
+            console.log(response);
+            sendLogData;
+            window.location.href = "http://localhost:8080/home.html";
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
         }
     },
   })

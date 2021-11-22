@@ -24,9 +24,6 @@ public class Log {
     private String path;
 
     @Column(nullable = false)
-    private String content;
-
-    @Column(nullable = false)
     private LocalDateTime timestamp;
 
     public Long getId() {
@@ -59,14 +56,6 @@ public class Log {
 
     public void setPath(String path) {
         this.path = path;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 
     public LocalDateTime getTimestamp() {
