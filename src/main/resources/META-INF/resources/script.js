@@ -30,8 +30,8 @@ var login = new Vue({
     el: '#login',
     data () {
         return{
-            benutzername_log: "",
-            passwort_log: "",
+            benutzername_login: "",
+            passwort_login: "",
             path: "src/main/resources/Logs",
             content: " ",
             timestamp: currentTimestamp
@@ -53,8 +53,8 @@ var login = new Vue({
         },
         sendLoginData: function () {
             axios.post('http://localhost:8080/auth/login', {
-                username: this.benutzername_log,
-                password: this.passwort_log
+                username: this.benutzername_login,
+                password: this.passwort_login
           })
           .then(function (response) {
             console.log(response);

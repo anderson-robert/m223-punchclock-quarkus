@@ -19,20 +19,21 @@
             <input type="date" v-model="checkOutDate" name="checkOutDate" id="entryCheckOut" required>
             <!--<input type="time" name="checkOutTime" required>-->
 
-            
             <h2>Category</h2>
-            <input type="radio" name="categoryChoice" id="categoryAdministratives" value="Administratives">
-            <label for="categoryAdministratives">Administratives</label><br>
-            <input type="radio" name="categoryChoice" id="categoryPlanung" value="Planung">
-            <label for="categoryPlanung">Planung</label><br>
-            <input type="radio" name="categoryChoice" id="categoryImplementierung" value="Implementierung">
-            <label for="categoryImplementierung">Implementierung</label><br>
-            <input type="radio" name="categoryChoice" id="categoryTesten" value="Testen">
-            <label for="categoryTesten">Testen</label><br>
-            <input type="radio" name="categoryChoice" id="categoryFerien" value="Ferien">
-            <label for="categoryFerien">Ferien</label>
+            <input type="radio" id="adminstratives" name="category" v-model="category.choice" value="Adminstratives">
+            <label for="adminstratives">Adminstratives</label><br>
+            <input type="radio" id="planung" name="category" v-model="category.choice" value="Planung">
+            <label for="planung">Planung</label><br>
+            <input type="radio" id="implementierung" name="category" v-model="category.choice" value="Implementierung">
+            <label for="implementierung">Implementierung</label><br>
+            <input type="radio" id="testen" name="category" v-model="category.choice" value="Testen">
+            <label for="testen">Testen</label><br>
+            <input type="radio" id="ferien" name="category" v-model="category.choice" value="Ferien">
+            <label for="ferien">Ferien</label><br>
 
             <input type="submit" v-on:click="sendEntryData" value="Save" />
+
+            <input type="submit" v-on:click="goToAdmin" value="Edit/Delete Users" />
         </div>
 
         <table>
@@ -50,6 +51,40 @@
                 </tr>
             </tbody>
         </table>
+
+        <h2>Update Entries</h2>
+        <div id="update">
+            <label for="id_update">ID</label>
+            <input type="text" v-model="id_update" name="id_update_input" id="id_update" required>
+
+            <label for="checkIn_update">Check in</label>
+            <input type="date" v-model="checkIn_update" name="checkIn_update_input" id="checkIn_update" required>
+
+            <label for="checkOut_update">Check out</label>
+            <input type="date" v-model="checkOut_update" name="checkOut_update_input" id="checkOut_update" required>
+
+            <h2>Update Category</h2>
+            <input type="radio" id="adminstratives_update" name="category_update" v-model="category_update.choice" value="Adminstratives">
+            <label for="adminstratives_update">Adminstratives</label><br>
+            <input type="radio" id="planung_update" name="category_update" v-model="category_update.choice" value="Planung">
+            <label for="planung_update">Planung</label><br>
+            <input type="radio" id="implementierung_update" name="category_update" v-model="category_update.choice" value="Implementierung">
+            <label for="implementierung_update">Implementierung</label><br>
+            <input type="radio" id="testen_update" name="category_update" v-model="category_update.choice" value="Testen">
+            <label for="testen_update">Testen</label><br>
+            <input type="radio" id="ferien_update" name="category_update" v-model="category_update.choice" value="Ferien">
+            <label for="ferien_update">Ferien</label><br>
+
+            <input type="submit" v-on:click="sendUpdateData" value="Update">
+        </div>
+
+        <h1>Delete Entry</h1>
+        <div id="delete">
+            <label for="id_delete">ID</label>
+            <input type="text" v-model="id_delete" name="id_delete_input" id="id_delete" required>
+
+            <input type="submit" v-on:click="sendDeleteData" value="Delete">
+        </div>
 
         <!--
         <form id="createEntryForm">
