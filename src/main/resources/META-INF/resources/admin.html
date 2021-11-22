@@ -22,6 +22,14 @@
 
             <input type="submit" v-on:click="sendUserUpdateData" value="Update">
         </div>
+
+        <h1>Delete User</h1>
+        <div id="delete">
+            <label for="id_delete">ID</label>
+            <input type="text" v-model="id_delete" name="id_delete_input" id="id_delete" required>
+
+            <input type="submit" v-on:click="sendUserDeleteData" value="Delete">
+        </div>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

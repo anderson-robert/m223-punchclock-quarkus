@@ -9,7 +9,7 @@ var update = new Vue({
     },
     methods: {
         sendUserUpdateData: function () {
-            axios.put('http://localhost:8080/register/',{
+            axios.put('http://localhost:8080/register',{
                 id: this.id_update,
                 username: this.benutzername_update,
                 password: this.passwort_update
@@ -20,6 +20,28 @@ var update = new Vue({
             .catch(err => {
                 console.error(err); 
             })
+        }
+    },
+})
+
+var deleteUser = new Vue({
+    el: "#delete",
+    data () {
+        return{
+            id_delete: ""
+        }
+    },
+    methods: {
+        sendUserDeleteData: function () {
+           axios.delete('http://localhost:8080/register/' + this.id_delete,{
+               
+            })
+           .then(res => {
+               console.log(res)
+           })
+           .catch(err => {
+               console.error(err); 
+           }) 
         }
     },
 })
