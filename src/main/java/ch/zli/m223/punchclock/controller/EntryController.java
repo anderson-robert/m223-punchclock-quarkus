@@ -52,7 +52,7 @@ public class EntryController {
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    @Operation(summary = "Update an existing Entry", description = "The updated entry is returned.")
+    @Operation(summary = "Update an existing Entry", description = "An existing entry matching the given parameters is updated. The updated entry is returned.")
     public void update(Entry entry){
         entryService.updateEntry(entry);
     }

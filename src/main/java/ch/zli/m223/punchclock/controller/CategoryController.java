@@ -19,7 +19,7 @@ public class CategoryController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = "List all Categories", description = "")
+    @Operation(summary = "List all Categories", description = "All found categories are returned in single List object.")
     public List<Category> list() {
         return categoryService.findAll();
     }
@@ -27,18 +27,23 @@ public class CategoryController {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = "Gets one category", description = "")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Gets one category", description = "A single category matching the given ID is returned.")
     public Category getSingleCategory(@PathParam("id") Long id){
         return categoryService.getSingleCategory(id);
     }
 
     @DELETE
     @Path("/{id}")
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Operation(summary = "Delete an existing Category", description = "The existing category matching the given ID is deleted.")
     public void delete(@PathParam("id") Long id){
         categoryService.deleteCategory(id);
     }
 
     @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Update an existing Category", description = "An existing category matching the given parameters is updated. The updated category is returned.")
     public void update(Category category){
         categoryService.updateCategory(category);
     }
