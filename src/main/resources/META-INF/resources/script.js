@@ -1,4 +1,5 @@
 const clientPath = "http://localhost:8080/";
+const currentTimestamp = new Date();
 
 var registration = new Vue({
     el: '#registration',
@@ -16,6 +17,7 @@ var registration = new Vue({
           })
           .then(function (response) {
             console.log(response);
+
           })
           .catch(function (error) {
             console.log(error);
@@ -29,7 +31,10 @@ var login = new Vue({
     data () {
         return{
             benutzername_log: "",
-            passwort_log: ""
+            passwort_log: "",
+            path: "src/main/resources/Logs",
+            content: " ",
+            timestamp: currentTimestamp
         }
     },
     methods: {
@@ -40,10 +45,28 @@ var login = new Vue({
           })
           .then(function (response) {
             console.log(response);
+            window.location.href = "http://localhost:8080/home.html";
           })
           .catch(function (error) {
             console.log(error);
           });
+        },
+
+        sendLogData: function () {
+            axios.post('http://localhost:8080/logs', {
+                logType: Object.logType,
+                user: Object.user,
+                path: path,
+                content: content,
+                timestamp: timestamp,
+            
+            })
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.error(err); 
+            })
         }
     },
   })

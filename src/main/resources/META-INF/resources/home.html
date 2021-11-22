@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Punchclock Client</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        <h1>Punchclock</h1>
+        <div id="createEntry">
+            <label for="entryCheckIn">Check in</label>
+            <input type="date" v-model="checkInDate" name="checkInDate" id="entryCheckIn" required>
+            <!--<input type="time" name="checkInTime" required>-->
+
+            <label for="entryCheckOut">Check out</label>
+            <input type="date" v-model="checkOutDate" name="checkOutDate" id="entryCheckOut" required>
+            <!--<input type="time" name="checkOutTime" required>-->
+
+            
+            <h2>Category</h2>
+            <input type="radio" name="categoryChoice" id="categoryAdministratives" value="Administratives">
+            <label for="categoryAdministratives">Administratives</label><br>
+            <input type="radio" name="categoryChoice" id="categoryPlanung" value="Planung">
+            <label for="categoryPlanung">Planung</label><br>
+            <input type="radio" name="categoryChoice" id="categoryImplementierung" value="Implementierung">
+            <label for="categoryImplementierung">Implementierung</label><br>
+            <input type="radio" name="categoryChoice" id="categoryTesten" value="Testen">
+            <label for="categoryTesten">Testen</label><br>
+            <input type="radio" name="categoryChoice" id="categoryFerien" value="Ferien">
+            <label for="categoryFerien">Ferien</label>
+
+            <input type="submit" v-on:click="sendEntryData" value="Save" />
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Check in</th>
+                    <th>Check out</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody id="entryDisplay">
+                <tr>
+                    <td colspan="4">Loading...</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!--
+        <form id="createEntryForm">
+            <label for="checkIn">Check in</label>
+            <input type="date" name="checkInDate" id="checkIn" required>
+            <input type="time" name="checkInTime" required>
+            <label for="checkOut">Check out</label>
+            <input type="date" name="checkOutDate" id="checkOut" required>
+            <input type="time" name="checkOutTime" required>
+            <input type="submit" value="Save" />
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Check in</th>
+                    <th>Check out</th>
+                </tr>
+            </thead>
+            <tbody id="entryDisplay">
+                <tr>
+                    <td colspan="3">Loading...</td>
+                </tr>
+            </tbody>
+        </table>
+        -->
+    </body>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="home_script.js"></script>
+</html>
