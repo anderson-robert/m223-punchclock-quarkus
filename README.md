@@ -10,7 +10,7 @@ Folgende Schritte sind notwendig um die Applikation zu erstellen und zu starten:
 ./mvnw compile quarkus:dev
 ```
 
-Link zur Git-Repository: https://github.com/anderson-robert/m223-punchclock-quarkus.git
+Link zur Git-Repository: https://github.com/anderson-robert/m223-punchclock-quarkus
 
 Datenimport unter `/src/main/resources/import.sql`
 
