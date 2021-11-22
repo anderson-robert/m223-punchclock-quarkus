@@ -28,7 +28,7 @@ public class EntryController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = "List all Entries", description = "")
+    @Operation(summary = "List all Entries", description = "All found entries are returned in single List object.")
     public List<Entry> list() {
         return entryService.findAll();
     }
@@ -36,18 +36,23 @@ public class EntryController {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = "Gets ones entry", description = "")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Gets ones entry", description = "A single entry matching the given ID is returned.")
     public Entry getSingleEntry(@PathParam("id") Long id){
         return entryService.getSingleEntry(id);
     }
 
     @DELETE
     @Path("/{id}")
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Operation(summary = "Delete an existing Entry", description = "The existing entry matching the given ID is deleted.")
     public void delete(@PathParam("id") Long id){
         entryService.deleteEntry(id);
     }
 
     @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Update an existing Entry", description = "The updated entry is returned.")
     public void update(Entry entry){
         entryService.updateEntry(entry);
     }
